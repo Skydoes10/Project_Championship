@@ -42,45 +42,6 @@ public class Main{
 		}	
 	}
 	
-	/*public void menuTeams(){
-		boolean menu = true;
-		while(menu){
-			System.out.println(
-				"Seleccione el equipo al que pertenece el piloto\n" +
-				"(1) Scuderia Ferrari\n" +
-				"(2) McLaren F1 Team\n" +
-				"(3) Red Bull Racing\n" + 
-				"(4) Mercedes Amg\n" + 
-				"(5) Racing Point\n" + 
-				"(6) Alfa Romeo\n" + 
-				"(7) Renault\n" + 
-				"(8) Williams\n"
-			);
-			int num = sc.nextInt();
-			sc.nextLine();
-			switch(num){
-				case 1: 
-					break;
-				case 2:
-					break;
-				case 3:
-					break;
-				case 4:
-					break;
-				case 5:
-					break;
-				case 6:
-					break;
-				case 7:
-					break;
-				case 8:
-					break;
-				default: System.out.println("Opcion no valida");
-					break;
-			}	
-		}
-	}*/
-	
 	public void createChampionship(){
 		System.out.println("Digite el año del campeonato:");
 		int yearCship = sc.nextInt();
