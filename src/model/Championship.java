@@ -1,5 +1,7 @@
 package model;
 
+import model.Pilots.Team;
+
 public class Championship{
 	
 	//Constant
@@ -16,31 +18,53 @@ public class Championship{
 	public Championship(int year, int races){
 		this.year = year;
 		this.races = races;
-		pilot = new Pilots[MAX_PILOTS];
 	}
 	
 	//Methods
-	public void addPilot(String name, int age, Team team, int length, int[] pScores){
-		pilot.Pilots(name, age, team, length, pScores);
+	public void addPilot(String name, int age, int num, int length, int[] pScores){
+		boolean error = findPilot(name);
+		if(num==1 && !error) {
+			pilot = new Pilots(name, age, Team.SCUDERIA_FERRARI, length, pScores);
+		}
+		else if(num==2 && !error) {
+			pilot = new Pilots(name, age, Team.MCLAREN_F1_TEAM, length, pScores);
+		}
+		else if(num==3 && !error) {
+			pilot = new Pilots(name, age, Team.RED_BULL_RACING, length, pScores);
+		}
+		else if(num==4 && !error) {
+			pilot = new Pilots(name, age, Team.MERCEDES_AMG, length, pScores);
+		}
+		else if(num==5 && !error) {
+			pilot = new Pilots(name, age, Team.RACING_POINT, length, pScores);
+		}
+		else if(num==6 && !error) {
+			pilot = new Pilots(name, age, Team.ALFAROMEO, length, pScores);
+		}
+		else if(num==7 && !error) {
+			pilot = new Pilots(name, age, Team.RENAULT, length, pScores);
+		}
+		else if(num==8 && !error) {
+			pilot = new Pilots(name, age, Team.WILLIAMS, length, pScores);
+		}
+		
 	}
 	
-	public void findPilot(String name){
-		boolean found = false;
-		for(int i=0; i<MAX_PILOTS && !found; i++){
+	public boolean findPilot(String name){
+		boolean error= false;
+		for(int i=0; i<MAX_PILOTS && !error; i++){
 			if(pilot!=null){
 				if(pilot.getName().equalsIgnoreCase(name)){
-					found = true;
+					error = true;
 				}
 			}
 		}
-		showAverageTimes(found, name);
+		return error;
 	}
 	
-	public String showAverageTimes(boolean found, String name){
+	public String showAverageTimes(String name){
 		String pilotF = "";
-		if(found==true){
 			pilotF = "Piloto: "+name+" || Tiempo promedio: "+pilot.convertScore();
-		}
 		return pilotF;
 	}
 	
@@ -59,5 +83,10 @@ public class Championship{
 	
 	public int getRaces(){
 		return races;
+	}
+	
+	public String showP() {
+		String out = pilot.toString();
+		return out;
 	}
 }

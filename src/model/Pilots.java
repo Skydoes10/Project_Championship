@@ -76,4 +76,8 @@ public class Pilots{
 	public int[] getScores(){
 		return scores;
 	}
+	
+	public String toString(String name, int age, Team team) {
+		return "Nombre: "+name+" Edad: "+age+" Equipo: "+team;
+	}
 }
